@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end
+  labels:
+    app: front-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front_end
+    spec:
+      serviceAccountName: api-server
+      containers:
+      - name: front-end
+        image: "us-docker.pkg.dev/nessight-refactor/nessight/front-end:latest"
+        ports:
+        - containerPort: 3000
+
+
+
+
+

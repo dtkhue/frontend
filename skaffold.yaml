@@ -1,0 +1,29 @@
+apiVersion: skaffold/v2beta9
+kind: Config
+metadata:
+  name: front-end
+build:
+  local: {}
+  tagPolicy:
+    gitCommit:
+      prefix: dev-
+  artifacts:
+    - image: us-docker.pkg.dev/nessight-refactor/nessight/front-end
+      sync:
+        infer: ["app/**/*"]
+deploy:
+  statusCheckDeadlineSeconds: 360
+  kustomize:
+    defaultNamespace: nessight-prod
+    paths: ["k8s/dev"]
+profiles:
+  - name: prod
+    activation:
+      - command: run
+    patches:
+      - op: replace
+        path: /build/tagPolicy/gitCommit/prefix
+        value: prod-
+      - op: replace
+        path: /deploy/kustomize/paths/0
+        value: "k8s/prod"

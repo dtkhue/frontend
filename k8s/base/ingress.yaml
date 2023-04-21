@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: front-end
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "front-end"
+    nginx.ingress.kubernetes.io/limit-rps: "5"
+spec:
+  tls:
+    - hosts:
+        - nessight.com
+      secretName: front-end
+  rules:
+    - host: "nessight.com"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+    
