@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
 import NewsCard, { INewsCard } from "@/pages/components_test/NewsCard/NewsCard";
-import { listNewsCard } from "../data_test/mockNewsCard";
+import { listNewsCard } from "../../data_test/mockNewsCard";
 
 import { FixedSizeList } from "react-window";
 

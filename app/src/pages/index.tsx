@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar";
 import Box from "@mui/material/Box";
-
 import Head from "next/head";
 import TickerCard from "@/components/TickerCard/TickerCard";
 import { ButtonDownload } from "@/components/Button/ButtonDownload";
@@ -10,13 +9,13 @@ export default function TickerDashboard(): any {
   const ticker = "AAPL";
   const keywords = ticker
     ? [
-        `${ticker} stock price`,
-        `${ticker} market cap`,
-        `${ticker} financials`,
-        `${ticker} earnings`,
-        `${ticker} stock analysis`,
-        `${ticker} trading`,
-      ]
+      `${ticker} stock price`,
+      `${ticker} market cap`,
+      `${ticker} financials`,
+      `${ticker} earnings`,
+      `${ticker} stock analysis`,
+      `${ticker} trading`,
+    ]
     : [];
 
   return (
@@ -78,7 +77,9 @@ export default function TickerDashboard(): any {
               <TickerCard ticker={ticker} />
             </Box>
           </Box>
+        
         </Box>
+
       </Box>
     </>
   );

@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"..\\components\\TickerCard\\TickerCard.tsx -> ./TickerCardTab":{"id":"..\\components\\TickerCard\\TickerCard.tsx -> ./TickerCardTab","files":["static/chunks/src_components_TickerCard_TickerCardTab_tsx.js"]}}
